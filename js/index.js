@@ -15,9 +15,11 @@ $(function() {
         var data = getData();
         var index = $(this).siblings('a').attr("index");
         var tit = prompt("Enter one thing you are going to do:");
-        data[index].title = tit;
-        saveData(data);
-        load();
+        if (tit !== null && tit !== '') {
+            data[index].title = tit;
+            saveData(data);
+            load();
+        }
     });
     // 删除所有未完成的待办事项
     $('.doing').on('click', '.doing-deleteall', function() {
